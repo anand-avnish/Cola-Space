@@ -1,3 +1,1521 @@
-h1{
-    color:red;
+
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=Montserrat&family=Poppins:wght@100;200;300;400;500&family=Press+Start+2P&family=Raleway&display=swap');
+
+*{
+    padding:0;
+    margin:0;
+    font-family: 'Raleway', sans-serif;
+    cursor: url(/assets/images/cocaColaGlass.png), auto;
 }
+
+body{
+    overflow:hidden;
+}
+
+.hidden{
+    display:none;
+}
+
+.load{
+    display:block;
+    height:100vh;
+    width:100vw;
+    background-image: url("/assets/images/loader-bg-2.jpg");
+    background-size: cover;
+    color:white;
+}
+/* Loading Animation */
+
+
+        .loader-wrap{
+            top:50%;
+            left:50%;
+            width:374px;
+            height:194px;
+            position:fixed;
+            margin-top:-97px;
+            margin-left:-187px;
+        }
+
+        .bar{
+            height:5px;
+            width:100%;
+            margin:30px 0;
+            position:relative;
+            background-color:#444;
+        }
+
+        .bar:before{
+            top:0;
+            left:0;
+            width:0;
+            content:'';
+            height:inherit;
+            position:absolute;
+            /* background: rgb(245,75,42);
+            background: linear-gradient(180deg, rgba(245,75,42,1) 0%, rgba(199,1,97,1) 37%, rgba(0,0,0,1) 89%); */
+            /* background: rgb(255,255,255); */
+            background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(0,0,0,1) 97%); 
+            animation:bar 2500ms linear infinite;
+        }
+
+        .text{
+            color: white;
+            font-size:30px;
+            font-weight:800;
+            text-align:center;
+            letter-spacing:10px;
+            text-transform:uppercase;
+        }
+
+        .cap{
+            left:0;
+            right:0;
+            top:-15px;
+            z-index:1;
+            width:100%;
+            position:absolute;
+        }
+
+        .cap>i{
+            opacity:0;
+            height:3px;
+            width:16px;
+            margin-left:12px;
+            border-radius:3px;
+            position:absolute;
+            /* background: rgb(245,75,42);
+            background: linear-gradient(180deg, rgba(245,75,42,1) 0%, rgba(199,1,97,1) 37%, rgba(0,0,0,1) 89%); */
+            background: rgb(255,255,255);
+            background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(0,0,0,1) 97%);
+            animation:move-cap 2500ms linear infinite;
+        }
+
+        .bottle-fill{
+            animation:waves 2500ms infinite linear, fill 2500ms infinite forwards;
+        }
+
+        .bottle-wrap{
+            height:110px;
+            position:relative;
+        }
+
+        .bottle{
+            bottom:0;
+            opacity:0;
+            width:40px;
+            text-align:center;
+            position: absolute;
+            display:inline-block;
+            vertical-align:bottom;
+            transform-origin:bottom right;
+            transform:translateX(-300px);
+            animation:move 2500ms linear infinite;
+        }
+
+        .bottle:before,
+        .bottle:after{
+            left:50%;
+            opacity:0;
+            content:'';
+            position:absolute;
+            /* background: rgb(245,75,42);
+            background: linear-gradient(180deg, rgba(245,75,42,1) 0%, rgba(199,1,97,1) 37%, rgba(0,0,0,1) 89%); */
+            background: rgb(255,255,255);
+            background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(0,0,0,1) 97%);
+        }
+
+        .bottle:before{
+            opacity:1;
+            width:4px;
+            top:-40px;
+            height:14px;
+            margin-left:-2px;
+            animation:lock-cap 2500ms linear infinite;
+        }
+
+        .bottle:after{
+            top:0;
+            height:4px;
+            width:16px;
+            margin-left:-8px;
+            border-radius:4px;
+            animation:show-cap 2500ms linear infinite;
+        }
+
+        .cap>i:nth-child(2),
+        .bottle:nth-child(2),
+        .bottle:nth-child(2):before,
+        .bottle:nth-child(2):after,
+        .bottle:nth-child(2) .bottle-fill{
+            animation-delay:625ms;
+        }
+
+        .cap>i:nth-child(3),
+        .bottle:nth-child(3),
+        .bottle:nth-child(3):before,
+        .bottle:nth-child(3):after,
+        .bottle:nth-child(3) .bottle-fill{
+            animation-delay:1250ms;
+        }
+
+        .cap>i:nth-child(4),
+        .bottle:nth-child(4),
+        .bottle:nth-child(4):before,
+        .bottle:nth-child(4):after,
+        .bottle:nth-child(4) .bottle-fill{
+            animation-delay:1875ms;
+        }
+        .bottle svg{vertical-align:bottom;display:block;margin:auto}
+
+        @keyframes waves{
+            0%{ x:-200px }
+            25%{ x:-100px }
+            50%{ x:-200px }
+            75%,
+            100%{ x:-40px }
+        }
+
+        @keyframes fill{
+            0%{ height:0; y:125px}
+            30%,
+            100%{ height:100px; y:25px}
+        }
+
+        @keyframes move{
+            0%{
+                opacity:0;
+                transform:translateX(0);
+            }
+            25%{
+                opacity:1;
+                transform:translateX(75px);
+            }
+            48%{transform:translateX(144px) translateY(0);}
+            50%{
+                transform:translateX(150px) translateY(-10px);
+            }
+            52%{transform:translateX(156px) translateY(0);}
+            75%{
+                opacity:1;
+                transform:translateX(225px);
+            }
+            100%{
+                opacity:0;
+                transform:translateX(300px);
+            }
+        }
+
+        @keyframes move-cap{
+            0%{
+                opacity:0;
+                transform:translate(0,0);
+            }
+            25%{
+                opacity:1;
+                transform:translate(75px,0);
+            }
+            45%{opacity:1}
+            48%{transform:translate(144px, 0)}
+            50%{
+                transform:translate(150px,10px);
+            }
+            52%{opacity:0}
+            75%{
+                transform:translate(225px,0);
+            }
+            100%{
+                opacity:0;
+                transform:translate(300px,0);
+            }
+        }
+
+        @keyframes show-cap{
+            0%,45%{opacity:0}
+            48%,90%{opacity:1}
+        }
+
+        @keyframes lock-cap{
+            0%,45%,48%,100%{opacity:0;transform:translateY(-10px)}
+            46%,47%{opacity:1;;transform:translateY(0)}
+        }
+
+        @keyframes bar{
+            0%{width:0}
+            100%{width:100%}
+        }
+
+        .load1{
+            height: 100vh;
+            width: 100vw;
+            animation: anima 2s linear;
+        }
+        
+        @keyframes anima {
+            0%{
+                opacity: 1;
+            }
+            65%{
+                opacity: 0.8;
+            }
+            100%{
+                opacity: 0;
+            }
+        }
+
+#full{
+    width:100vw;
+    overflow:hidden;
+}
+
+.main{
+    display: none;
+    /* overflow-x: scroll; */
+    width: 100vw;
+    position:absolute;
+    top: 0;
+    left:0;
+    height:100%;
+    overflow:hidden;
+}
+
+/* Home Style */
+
+        .home{
+            min-width:100vw;
+            height:100%;
+            color:white;
+            z-index: 2;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            overflow: hidden;
+            /* padding:20px; */
+        }
+
+        #home-logo{
+            margin:10px 0;
+            height:5%;
+        }
+
+        #bgVideo{
+            position: fixed;
+            right: 0;
+            top: 0;
+            min-width: 100%;
+            min-height: 100%;
+            z-index:-1;
+        }
+
+        .home-context{
+            padding: 0 20px;
+            width:100%;
+            position:relative;
+            display: flex;
+            justify-content: space-between;
+            align-items:flex-start;
+        }
+
+        .home-context .home-textBox{
+            position: relative;
+            max-width: 600px;
+            line-height: 25px;
+        }
+
+        .home-context .home-textBox h2{
+            color:white;
+            font-size:4em;
+            line-height: 1.4em;
+            font-weight:600;
+        }
+
+        .home-context .home-textBox h2 span{
+            color:#8B91E3;
+            font-size:1.2em;
+            font-weight:bolder;
+        }
+
+        .home-context .home-imgBox{
+            width:600px;
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 50px;
+            margin-top: 50px;
+        }
+
+        .home-context .home-imgBox img{
+            max-width: 300px;
+        }
+
+        .home-thumb{
+            position: absolute;
+            left:50vw;
+            bottom:20px;
+            transform:translateX(-50%);
+            display:flex;
+        }
+
+        .home-thumb li{
+            list-style: none;
+            display: inline-block;
+            margin: 0 20px;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+
+        .home-thumb li:hover{
+            transform: translateY(-15px);
+        }
+
+        .home-thumb li img{
+            max-width: 60px;
+        }
+
+        .home-circle{
+            position: absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            /* background:#fcd; */
+            background-image: url('../images/dreamworld.png');
+            background-size:cover;
+            clip-path: circle(600px at right 800px);
+        }
+
+        
+/* Menu Page Style */
+
+    .menu{
+        min-width:100vw;
+        height:100%;
+        max-height:100%;
+        /* color:white; */
+        z-index: 2;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        /* padding:20px; */
+    }
+
+    .menu-context{
+        height:100%;
+        width:40%;
+        display: flex;
+        flex-direction:column;
+        justify-content: space-evenly;
+        align-items: center;
+        /* border: 1px solid white; */
+        font-size: 45px;
+        font-weight: 900;
+        /* color:transparent; */
+    }
+    
+    .menu-text{
+        font-weight: 900;
+        color: transparent;
+        -webkit-text-stroke-width: 0.0001px;
+        -webkit-text-stroke-color: white;
+        font-size:60px;
+    }
+    
+    .menu-text2{
+        font-weight: 900;
+        color: transparent;
+        -webkit-text-stroke-width: 0.0001px;
+        -webkit-text-stroke-color: black;
+        font-size:60px;
+    }
+
+
+    .menu-nav{
+        text-decoration: none;
+        color: transparent;
+        -webkit-text-stroke-color: white;
+    }
+    .menu-nav2{
+        text-decoration: none;
+        color: transparent;
+    }
+
+    
+    .menu-nav:hover{
+        color:white;
+        -webkit-text-stroke-color: white;
+        font-size:70px;
+    }
+
+    .menu-nav2:hover{
+        color:red;
+        -webkit-text-stroke-color: red;
+        font-size:70px;
+    }
+
+    .home-nav, .about-nav, .drink-nav, .contact-nav{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        width:100%;
+        height:25%;
+        background: black;
+        /* border:2px solid white; */
+    }
+
+    .home-nav{
+        background-image:url('../images/starlight.jpg');
+        background-size:cover;
+    }
+
+    .about-nav{
+        background-image:url('../images/colaSmoke.png');
+        background-size:cover;
+        /* background-repeat: repeat-y; */
+    }
+
+    .drink-nav{
+        background-image:url('../images/colaDrinks.jpg');
+        background-size:cover;
+        /* background-repeat: repeat-y; */
+    }
+
+    .contact-nav{
+        background-image:url('../images/colaSpace.png');
+        background-size:contain;
+        background-repeat:no-repeat;
+    }
+
+    .home-nav:hover, .about-nav:hover, .drink-nav:hover, .contact-nav:hover{
+        border:2px solid white;
+    }
+
+
+
+    .menu-anim{
+        height:100%;
+        width:60%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    #rotating-bottle{
+        display:block;
+        height:40vw;
+        transform-origin: center;
+        touch-action: none;
+        transform: rotate(0deg);
+        /* transition: transform 0.02s ease-in-out; */
+    }
+
+
+/* About Page */
+
+        .about{
+            min-width:100vw;
+            max-width:100vw;
+            height:100%;
+            color:white;
+            z-index: 2;
+            display: flex;
+            /* justify-content: space-between;
+            align-items: center; */
+            overflow: hidden;
+            /* padding:20px; */
+        }
+
+        :root{
+            --textura-navidad: url('http://gutierrezedgar.com/embol/textura-navidad-embol.svg');
+            --onda-botella: url('http://gutierrezedgar.com/embol/onda-embol.svg');
+            
+            --rojo: rgba(224, 0, 20, 1);
+            --gris: rgba(164, 164, 164, 1);
+            --amarillo: rgba(255, 221, 0, 1);
+            --verde: white;  
+            
+            --montserrat: 'Montserrat', verdana, sans-serif;
+            
+            --img01: var(--textura-navidad);
+            --img02: var(--onda-botella);
+            
+            --type-01: var(--montserrat);
+            
+            --color-01: var(--rojo, cyan);
+            --color-02: var(--amarillo);
+            --color-03: var(--verde);
+          }
+
+          .about-desc{
+            display:none;
+            width:60%;
+            padding:30px;
+            transition:ease-in-out 3s;
+            flex-direction: column;
+            justify-content: space-around;
+          }
+
+          .about-title{
+            color:rgba(224, 0, 20, 1);
+            font-size:5rem;
+            font-weight:900;
+          }
+
+          .about-list{
+            font-size:2rem;
+            list-style-type: none;
+          }
+
+          .about-point{
+            margin-top:10px;
+          }
+          
+          .about-anim{
+            display:none;
+            height:100%;
+            flex-grow: 1;
+            width:40%;
+          }
+          
+          .container-christmas{
+            /* background-image: var(--img01);  */
+            flex-grow: 1;
+            width:100%;
+            background-blend-mode: multiply; 
+            background-size: 40em auto; 
+            background-position: 0 50%;
+            min-height: 100vh;   
+            font-family: var(--type-01);  
+            
+            --duracion-llenado: 5s;
+            --duracion-escena02-fragmentos: 5s;
+            --duracion-escena02-coloreado: 2s;
+            --tiempo-salida: calc( var(--duracion-llenado) * 1.2 );
+            --empieza-escena2: calc( var(--duracion-llenado) * 1.3 );  
+          }
+          
+          .hidding{
+            position: absolute;
+            z-index: -10;
+          }
+          
+          .animation-01{  
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            align-content: center;
+            align-items: center;
+            justify-content: center;
+          }
+          
+          .group-image-bottle{
+            width: 180px;
+            height: 600px;
+            position: relative;
+          }
+          
+          .animation-01.activa .group-image-bottle{
+            animation: 
+              aparicion ease .5s both,
+              desaparicion ease .5s both var(--tiempo-salida);
+          }
+          
+          .msj{
+            z-index: 1;
+            font-size: 0.8em;
+            font-weight: 700;
+            color: black;
+            text-align: center;
+            text-transform: uppercase;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 150%;
+            transform: translate(-50%, -50%);
+          }
+          
+          .activa .msj{
+            animation: aparicion-msj ease both;
+            animation-duration: calc( var(--duracion-llenado) / 10 );
+            animation-delay: calc( var(--duracion-llenado) / 5 );
+          }
+          
+          .svg-bottle-stroke{
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            z-index: 2;
+          }
+          
+          .svg-bottle-shape{ 
+            stroke: var(--color-01, white); 
+            fill: none; 
+            stroke-width: .5em;
+          }
+          
+          .svg-bottle-shape-path{
+            transform: scale(0.95) translate(2%, 2%);   
+          }
+          
+          .bottle-cola,
+          .wave{
+            position: absolute;
+            bottom: 0;
+            left: 0%;  
+          }
+          
+          .bottle-cola{
+            width: 100%;
+            height: 100%;
+            clip-path: url(#svg-mask-bottle);
+            background-color: rgba(255,255,255, .8);
+          }
+          
+          .wave{
+            transition: all ease 1s;
+            will-change: height;
+            width: 100%;
+            height: var(--altura);
+            animation: llenado var(--duracion-llenado) ease both;
+          }
+          
+          .wave::before,
+          .wave::after{
+            position: absolute;
+            content: '';  
+            display: inline-block;
+          }
+          
+          .wave::after{
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--color-01);
+          }
+          
+          .wave::before{
+            bottom: 100%;
+            height: 1em;
+            width: 400%;
+            background-image: var(--img02);  
+            background-size: 50% 100%;
+            animation: vaiven linear 1s infinite;
+          }
+          
+          /*=============ANIMACION 02*/
+          
+          .animation-02 {
+            position: absolute;
+            z-index: 5;
+            top:0;
+            /* top: 0;
+            left: 0; */
+            width: 40%;
+            height: 100%;
+          }
+          
+          .group-image-bottle-fragment {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* padding-left:30px; */
+          }
+          
+          .svg-bottle-fragment {
+            width: auto;
+            height: 600px;
+            transform: scale(0.95);
+          }
+          
+          .grupo1{  
+            fill: var(--color-03);
+          }
+          
+          .grupo2{  
+            fill: var(--color-01);
+          }
+          
+          .grupo3{  
+            fill: var(--color-01);
+          }
+          
+          .embol-fragment{
+            --numero-fragmentos: 21;
+            --multiplo: 1;
+            --tiempo-cada-fragmento: calc( var(--t-e2-f) / var(--n-f) );
+            --atraso-cada-fragmento: calc( var(--e-e2-f) + ( var(--t-f) * var(--multiplo) ) );
+            
+            --n-f: var(--numero-fragmentos);
+            --t-e2-f: var(--duracion-escena02-fragmentos);
+            --t-e2-c: var(----duracion-escena02-coloreado);
+            --e-e2-f: var(--empieza-escena2);
+            --t-f: var(--tiempo-cada-fragmento);
+            --a-f: var(--atraso-cada-fragmento);
+            
+            animation: aparicion-fragmento ease both;
+            animation-duration: var(--t-f);
+            animation-delay: var(--a-f);
+          }
+          
+          .embol-fragment.grupo2,
+          .embol-fragment.grupo3{
+            --empieza-coloreado: calc( var(--a-f) + ( var(--t-f) * 14 ) + ( var(--d-c) * var(--multiplo) ) );
+            --duracion-colorado: calc( var(--t-f) / 10);
+            --e-c: var(--empieza-coloreado);
+            --d-c: var(--duracion-colorado);
+            
+            animation: 
+              aparicion-fragmento ease both,
+              colorado ease both;   
+            animation-duration: var(--t-f);
+            animation-delay: var(--a-f), var(--e-c);
+          }
+          
+          .part02{ --multiplo: 2;}
+          .part03{ --multiplo: 3;}
+          .part04{ --multiplo: 4;}
+          .part05{ --multiplo: 5;}
+          .part06{ --multiplo: 6;}
+          .part07{ --multiplo: 7;}
+          .part08{ --multiplo: 8;}
+          .part09{ --multiplo: 9;}
+          .part10{ --multiplo: 10;}
+          .part11{ --multiplo: 11;}
+          .part12{ --multiplo: 12;}
+          .part13{ --multiplo: 13;}
+          .part14{ --multiplo: 14;}
+          .part15{ --multiplo: 15;}
+          .part16{ --multiplo: 16;}
+          .part17{ --multiplo: 17;}
+          .part18{ --multiplo: 18;}
+          .part19{ --multiplo: 19;}
+          .part20{ --multiplo: 20;}
+          .part21{ --multiplo: 21;}
+          
+          @keyframes vaiven{  
+            100% { transform: translateX(-50%); }
+          }
+          
+          @keyframes llenado{  
+            0% { height: 0%; }
+            100% { height: 100%; }
+          }
+          
+          @keyframes aparicion{
+            0% { transform: scale(0); opacity: 0;  }
+          }
+          
+          @keyframes aparicion-fragmento{
+            0% { transform: translateY(-50%); opacity: 0;  }
+          }
+          
+          @keyframes desaparicion{
+            100% { transform: scale(3); opacity: 0;  }
+          }
+          
+          @keyframes aparicion-msj{
+            0% { opacity: 0; color: black; } 
+            50%{ opacity: 1; color: black; }
+            100%{ opacity: 1; color: white; }
+          }
+          
+          @keyframes colorado{
+            100% { fill: var(--color-03)}
+          }
+
+
+/* Drinks Page */
+
+        .drinks{
+            min-width:100vw;
+            max-width:100vw;
+            height:100%;
+            /* background-color: white; */
+            /* color:black; */
+            z-index: 2;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            overflow: hidden;
+            /* overflow-y: auto; */
+            /* perspective: 1000px; */
+            /* padding:20px; */
+        }
+
+        .card-container{
+            width:200px;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .card1 {
+            background-color: white;
+            transform-style: preserve-3d;
+            cursor: pointer;
+            height: 280px;
+            width: 200px;
+            border-radius: 30px;
+            padding: 0 1vw;
+            padding-top: 10px;
+            box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2), 0px 0px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .drink1 {
+            max-height: 110px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .drink1 img {
+            height: 110px;
+            z-index: 2;
+            transition: all 0.75s ease-out;
+        }
+        .circle1 {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(
+                to right,
+                rgba(245, 70, 66, 0.75),
+                rgba(8, 83, 156, 0.75)
+            );
+            position: absolute;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .info h1 {
+            text-align: center;
+            font-size: 2rem;
+            transition: all 0.75s ease-out;
+        }
+
+        .info h3 {
+            text-align: center;
+            font-size: 1rem;
+            padding: 1rem 0rem;
+            color: #585858;
+            font-weight: lighter;
+            transition: all 0.75s ease-out;
+        }
+        .sizes {
+            display: flex;
+            justify-content: space-between;
+            transition: all 0.75s ease-out;
+        }
+        .sizes button {
+            padding: 0.5rem 2rem;
+            background: none;
+            border: none;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #585858;
+        }
+
+        button.active {
+            background: #585858;
+            color: white;
+        }
+        .purchase {
+            margin-top: 20px;
+            transition: all 0.75s ease-out;
+        }
+        .purchase button {
+            width: 100%;
+            padding: 1rem 0rem;
+            background: #f54642;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 30px;
+            font-weight: bolder;
+        }
+
+        .product-container{
+            margin: 4% auto;
+            width: 500px;
+            height: 300px;
+            /* position: relative; */
+            perspective: 1000px;
+            /* display: none; */
+        }
+        #carousel{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            transform-style: preserve-3d;
+            animation: rotation 20s infinite linear;
+        }
+        #carousel:hover{
+            animation-play-state: paused;
+        }
+
+        /* section{
+            display: inline;
+        } */
+        #carousel section{
+            display: block;
+            position: absolute;
+            width: 200px;
+            height: 290px;
+            left: 10px;
+            top: 10px;
+            border-radius: 30px;
+            /* background: black; */
+            overflow: hidden;
+            cursor: pointer;
+            /* border: solid 5px black; */
+        }
+        #carousel section:nth-child(1){transform: rotateY(0deg) translateZ(288px);}
+        #carousel section:nth-child(2) { transform: rotateY(40deg) translateZ(288px);}
+        #carousel section:nth-child(3) { transform: rotateY(80deg) translateZ(288px);}
+        #carousel section:nth-child(4) { transform: rotateY(120deg) translateZ(288px);}
+        #carousel section:nth-child(5) { transform: rotateY(160deg) translateZ(288px);}
+        #carousel section:nth-child(6) { transform: rotateY(200deg) translateZ(288px);}
+        #carousel section:nth-child(7) { transform: rotateY(240deg) translateZ(288px);}
+        #carousel section:nth-child(8) { transform: rotateY(280deg) translateZ(288px);}
+        #carousel section:nth-child(9) { transform: rotateY(320deg) translateZ(288px);}
+        
+        img{
+            /* -webkit-filter: grayscale(1); */
+            cursor: pointer;
+            transition: all .5s ease;
+        }
+        /* .card1:hover{
+          transform: scale(1.2,1.2);
+        } */
+        
+        @keyframes rotation{
+            from{
+                transform: rotateY(0deg);
+            }
+            to{
+                transform: rotateY(360deg);
+            }
+        }
+
+        /* Description Page */
+
+        .detail-container{
+            display:none;
+            /* visibility: hidden; */
+            width:100vw;
+            height:100%;
+            /* display:flex; */
+            background:#B6D6C8;
+            flex-wrap: wrap-reverse;
+            overflow-y: scroll;
+            -ms-overflow-style: none;
+            scrollbar-width: none;  
+            /* box-sizing: content-box; */
+            transition: all 5s ease-in-out;
+        }
+
+        .detail-container::-webkit-scrollbar { 
+            display: none;  /* Safari and Chrome */
+        }
+
+        .drink-desc{
+            /* height:100%; */
+            width:40%;
+            min-width:min-content;
+            flex-grow: 1;
+            padding:20px 10px;
+            display:flex;
+            flex-direction:column;
+            justify-content: space-evenly;
+            padding-left:50px;
+        }
+
+        .drink-head{
+            padding:20px;
+            display:flex;
+            flex-direction: column;
+            font-weight:bold;
+        }
+
+        .drink-name{
+            font-size:4.5rem;
+            margin-bottom:30px;
+        }
+
+        .drink-price{
+            font-size:2rem;
+        }
+
+        .drink-body{
+            padding:20px;
+            font-weight:500;
+            font-size:1.3rem;
+        }
+
+        .drink-box{
+            /* height:100%; */
+            width:50%;
+            min-width:fit-content;
+            flex-grow:1;
+            padding:20px 10px;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+
+        .drink-img{
+            height:80vh;
+            z-index:99;
+        }
+
+        .drink-bg{
+            z-index:2;
+            height:85vh;
+            width:350px;
+            background: url('../images/starlight.jpg');
+            display:flex;
+            align-items:flex-end;
+            justify-content:center;
+            border-radius:40%;
+        }
+
+        .drink-actions{
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
+            width:100%;
+            position: absolute;
+            top: 50%;
+        }
+
+        .drink-previous, .drink-next{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width:40px;
+            height:40px;
+            cursor: pointer;
+            /* border: 2px solid black; */
+            /* border-radius:50%; */
+            margin:0 10px;
+            transition: ease-in-out 500ms;
+        }
+
+        .drink-previous:hover, .drink-next:hover{
+            height:50px;
+            width:50px;
+        }
+
+        .prev-gif{
+            transform: rotate(180deg);
+            height:100%;
+            width:100%;
+        }
+
+        .next-gif{
+            height:100%;
+            width:100%;
+        }
+
+        .drink-back{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width:40px;
+            height:40px;
+            cursor: pointer;
+            border: 2px solid black;
+            border-radius:50%;
+            margin:0 10px;
+            transition: ease-in-out 500ms;
+        }
+        
+        .drink-back:hover{
+            background-color:black;
+            color:white !important;
+            border: 2px solid white;
+        }
+
+    /* Contact page */
+
+    .contact{
+        min-width:100vw;
+        max-width:100vw;
+        height:100%;
+        /* color:white; */
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        /* padding:20px; */
+    }
+
+    .contact-header{
+        height:30%;
+        width:100%;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        color:white;
+        flex-wrap: wrap;
+    }
+
+    .contact-title{
+        font-size:5rem;
+        font-weight: 900;
+        margin-right:30px
+    }
+
+    .contact-content{
+        flex-grow: 1;
+        width:100%;
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding:20px;
+    }
+
+    .coke-contact{ 
+        width: 120px;
+        height: 120px;
+        background: #ff2931;
+        border-radius: 50%;
+        /* //border: 9px solid #eff7ef; */
+        position: relative;
+    }   
+        
+    .coke-wrapper{
+        width: 18%;
+        position: relative;
+        transform: translate3d(-50%, -50%, 0);
+        position: absolute;
+        top: 50%;
+        bottom: auto;
+        left: 50%;
+        right: auto;
+    }
+        
+    .coke-bottle{
+        width: 100%;
+        height: auto ;
+        
+        /* //transform:  rotate(5deg) translateY(-65%) */
+    }
+        
+    @keyframes cokeBottle{        
+        0%
+        {    transform: scale(1.3) translateY(-50%) }
+
+        
+        5%
+        {    transform: scale(1) translate3d(0, -40%, 0) rotate(0)}
+        
+        12%
+        {    transform:  rotate(5deg) translate3d(0,-30%, 0)}
+        
+        16%
+        {    transform: rotate(10deg) translate3d(0,-15%,0)}
+        
+        24%
+        {    transform: rotate(0deg) translate3d(0,0,0)}
+        
+        32%{
+            transform: rotate(-10deg);
+            opacity: 1;
+        }
+        40%, 100%{
+            transform: rotate(0);
+            opacity: 0;
+        }    
+    }
+        
+    .coke-text{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate3d(-50%, -50%, 0);
+        color: white;
+        font-family: sans-serif;
+        font-weight: bolder;
+        opacity: 0;
+    }    
+        
+    @keyframes cokeText{
+        0%, 37%{
+            opacity: 0;
+            top: 40%;
+        }   
+        50%, 100%{
+            opacity: 1;
+            top: 50%;
+        }
+    }
+
+    .coke-bubles{
+        position: absolute;
+        width: 30%;
+        height: 10%;
+        top: 0%;
+        left: 40% ;
+        z-index: 2;
+    }
+        
+        
+    @keyframes cokeBubles{ 
+        0%, 21%{
+            transform: rotate(10deg);
+            opacity: 0
+        }
+        20%{
+            transform: rotate(0deg);
+            opacity: 1
+        }
+        35%{
+            transform: rotate(-10deg);
+            opacity: 1
+        }    
+        36%, 100%{
+            opacity: 0;
+        }
+    }
+
+    .coke-buble{
+        border-radius: 50%;
+        border: 2px solid white;
+        background: white;
+        width: 10%;
+        height: 10%;
+        position: absolute;
+        bottom: 0;
+        overflow: hidden;
+    }   
+    .coke-buble-1{
+            left: 55%;
+            bottom: 10%;
+            opacity: 0;
+    }    
+        
+    .coke-buble-2{
+            left: 35%;
+            bottom: 5%;
+            opacity: 0; 
+            transform: scale(0.8);
+    }
+        
+    .coke-buble-3{
+            left: 30%;
+            bottom: 0%;
+            opacity: 0; 
+            transform: scale(0.5);
+    }
+            
+    @keyframes cokeBuble1{
+        0%, 5%{
+            opacity: 0 ;
+            left: 55%;
+            bottom: 10%;
+        }
+        
+        18%{
+            opacity: 0.5
+        }
+        
+        21%{
+            opacity: 1;
+            left: 57%;
+        } 
+        
+        35%, 100%{
+            bottom: 110%;
+            left: 65%;
+            opacity: 0.3;
+        }
+        
+        36% {
+            opacity: 0
+        }
+    }
+
+    @keyframes cokeBuble2{
+        0%, 15%{
+            opacity: 0 ;
+            left: 35%;
+            bottom: 5%;
+        }
+        
+        16%{
+            opacity: 0.5;
+        }
+        
+        21%{
+            opacity: 1;
+            left: 36% ;
+        }
+        
+        40%, 100%{
+            bottom: 100%;
+            left: 37%;
+            opacity: 0.5;
+        }
+        
+        43%{
+            opacity: 0
+        }
+    }
+
+    @keyframes cokeBuble3{
+        0%, 23%{
+            opacity: 0;
+            left: 30%;
+            bottom: 0%;
+        }
+        
+        24%{
+            opacity: 0.5;
+        }
+        
+        27%{
+            opacity: 1;
+        }
+        
+        35%, 100%{
+            bottom: 90%;
+            left: 0%;
+            opacity: 0.5;
+        }
+        
+        36%{
+            opacity: 0;
+        }
+    }
+        
+        
+        
+    .wrapper--animated .coke-bottle{
+            animation: cokeBottle 2000ms linear 100 
+    }
+    .wrapper--animated .coke-text{
+            animation: cokeText 2000ms linear 100
+    }
+    .wrapper--animated .coke-bubles{
+            animation: cokeBubles 2000ms linear 100
+    }
+    .wrapper--animated .coke-buble-1{
+            animation: cokeBuble1 2000ms linear 100
+    }
+    .wrapper--animated .coke-buble-2{
+            animation: cokeBuble2 2000ms linear 100
+    }
+    .wrapper--animated .coke-buble-3{
+            animation: cokeBuble3 2000ms linear 100
+    }
+
+    .contact-text{
+        color:white;
+        font-size:2rem;
+    }
+
+    .contact-links{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width:100%;
+        margin-top:30px;
+    }
+
+    .contact-link-list{
+        display:flex;
+        gap:25px;
+        flex-wrap: wrap;
+    }
+
+    .contact-link-box{
+        position: relative;
+        list-style:none;
+        width:60px;
+        height:60px;
+        background: white;
+        border-radius: 60px;
+        cursor:pointer;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 10px 25px rgba(255, 255, 255, 0.41);
+        transition:0.5s;
+    }
+
+    .contact-link-box:hover{
+        width:200px;
+        box-shadow: 0 10px 25px rgba(255, 255, 255);
+    }
+
+    .contact-link-box::before{
+        content:'';
+        position:absolute;
+        inset:0;
+        border-radius: 60px;
+        background:linear-gradient(45deg, var(--i),var(--j));
+        opacity:0;
+        transition:0.5s;
+    }
+
+    .contact-link-box:hover::before{
+        opacity:1;
+    }
+
+    .contact-link-box::after{
+        content:'';
+        position:absolute;
+        top:10px;
+        width:100%;
+        height:100%;
+        border-radius:60px;
+        background: linear-gradient(45deg, var(--i), var(--j));
+        transition:0.5s;
+        filter:blur(15px);
+        z-index:0;
+        opacity:0;
+    }
+
+    .contact-link-box:hover::after{
+        opacity:0.5;
+    }
+
+    .contact-link-box ion-icon{
+        color:#777;
+        font-size:1.75rem;
+        transition:0.5s;
+        transition-delay: 0.25s;
+    }
+
+    .contact-link-box:hover ion-icon{
+        transform:scale(0);
+        color:#fff;
+        transition:0s;
+    }
+
+    .contact-link-box span{
+        position: absolute;
+    }
+
+    .contact-link-box .contact-title{
+        color:#fff;
+        font-size:1.25em;
+        font-weight:900;
+        text-transform: uppercase;
+        letter-spacing:0.1em;
+        transform: scale(0);
+        transition: 0.5s;
+        transition-delay:0s;
+    } 
+
+    .contact-link-box:hover .contact-title{
+        transform: scale(1);
+        transition-delay: 0.25s;
+    }
