@@ -19,13 +19,14 @@ let count=0;
 
 setTimeout(() => {
     loader[0].classList.add('load1')
+    main[0].style.display = "flex";
+    main[0].classList.add('load2')
 },1000)
 
 setTimeout(() => {
     // console.log("Timeout");s
     // console.log(main);
     loader[0].style.display = "none";
-    main[0].style.display = "flex";
 },3000)
 
 function imgSlider(anything){
@@ -77,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 left:e.deltaY>0?screen.width:-(screen.width),
                 behavior : "smooth"
             });
-            console.log(scroller.scrollLeft);
+            // console.log(scroller.scrollLeft);
             if((scroller.scrollLeft===screen.width||scroller.scrollLeft===3*screen.width)&&count<1){
                 // console.log("ON page");
                 count=1;

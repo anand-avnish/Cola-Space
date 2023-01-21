@@ -250,6 +250,12 @@ body{
             width: 100vw;
             animation: anima 2s linear;
         }
+
+        .load2{
+            height: 100vh;
+            width: 100vw;
+            animation: anima2 2s linear;
+        }
         
         @keyframes anima {
             0%{
@@ -260,6 +266,18 @@ body{
             }
             100%{
                 opacity: 0;
+            }
+        }
+        
+        @keyframes anima2 {
+            0%{
+                opacity: 0;
+            }
+            65%{
+                opacity: 0;
+            }
+            100%{
+                opacity: 1;
             }
         }
 
@@ -1446,7 +1464,7 @@ body{
         display:flex;
         justify-content: center;
         align-items: center;
-        box-shadow: 0 10px 25px rgba(255, 255, 255, 0.41);
+        box-shadow: 0 10px 25px rgba(255, 255, 255, 0.279);
         transition:0.5s;
     }
 
@@ -1505,6 +1523,7 @@ body{
     }
 
     .contact-link-box .contact-title{
+        z-index:3;
         color:#fff;
         font-size:1.25em;
         font-weight:900;
